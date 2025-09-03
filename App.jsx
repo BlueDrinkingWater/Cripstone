@@ -12,7 +12,6 @@ import EnvironmentInfo from './components/shared/EnvironmentInfo.jsx';
 import CustomerDashboard from './pages/customer/CustomerDashboard.jsx';
 
 // Admin/Owner Routes
-import OwnerLayout from './pages/owner/Layout.jsx';
 import OwnerDashboard from './pages/owner/Dashboard.jsx';
 import ManageCars from './pages/owner/ManageCars.jsx';
 import ManageTours from './pages/owner/ManageTours.jsx';
@@ -123,11 +122,11 @@ function App() {
             <Route path="/employee-login" element={<EmployeeLogin />} />
             
             {/* Admin/Owner Protected Routes */}
-            <Route path="/owner" element={
-              <ProtectedRoute requiredRole="admin">
-                <OwnerLayout />
-              </ProtectedRoute>
-            }>
+<Route path="/owner" element={
+  <ProtectedRoute requiredRole="admin">
+    <OwnerDashboard />
+  </ProtectedRoute>
+}>
               <Route index element={<Navigate to="/owner/dashboard" replace />} />
               <Route path="dashboard" element={<OwnerDashboard />} />
               <Route path="manage-cars" element={<ManageCars />} />
